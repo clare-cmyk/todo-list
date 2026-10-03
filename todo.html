@@ -1308,8 +1308,8 @@
       } else {
         attentionWrap.innerHTML = `
           <div class="card needs-action-card">
-            <div class="card-label">Due &amp; Overdue</div>
-            ${flagged.slice(0, 8).map(i => {
+            <div class="card-label">Due &amp; Overdue (${flagged.length})</div>
+            ${flagged.map(i => {
               const isOverdue = i.dueDate < today;
               return `
               <div class="needs-action-row" onclick="goToDivision('${i.divKey}')">
