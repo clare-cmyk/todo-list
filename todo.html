@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <!-- Supabase CDN — cross-device sync (same project as the Candidate Pipeline tracker) -->
+  <!-- Supabase CDN — cross-device sync -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 
   <style>
@@ -837,11 +837,11 @@
 
   <script>
     /* ============================================================
-       SUPABASE — same project as the Candidate Pipeline tracker,
-       distinct 'todo_*' keys so nothing collides with its data.
+       SUPABASE — to-do list project. Tasks live in public.hub_data
+       under distinct 'todo_*' keys.
     ============================================================ */
-    const SUPABASE_URL      = 'https://ttxokegaunuiwvjtpdnb.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR0eG9rZWdhdW51aXd2anRwZG5iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcwNjQ3NTAsImV4cCI6MjEwMjY0MDc1MH0.1kDk4gvf8ud14AoddxuHTL3F2Bieqx8mGc5evlRK5Ew';
+    const SUPABASE_URL      = 'https://nrpgipbgrgliopnwxugk.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ycGdpcGJncmdsaW9wbnd4dWdrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM3MzQxOTUsImV4cCI6MjEwOTMxMDE5NX0.xMaWKQcc3JgTLw2bvTrFvDOkAdPwFDosS5hlJWMm_xY';
     const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     const DIVISIONS = [
