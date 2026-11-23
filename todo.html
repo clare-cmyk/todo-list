@@ -417,15 +417,18 @@
         background: var(--surface);
         border-top: 1.5px solid var(--border);
         padding: 4px 4px calc(4px + env(safe-area-inset-bottom));
+        overflow-x: auto;
+        scrollbar-width: none;
       }
+      .sidebar-nav::-webkit-scrollbar { display: none; }
       .tab {
         flex-direction: column;
         justify-content: center;
         gap: 2px;
         width: auto;
-        flex: 1 1 0;
-        min-width: 0;
-        padding: 6px 2px;
+        flex: 1 0 auto;
+        min-width: 56px;
+        padding: 6px 6px;
         font-size: 10.5px;
         text-align: center;
         min-height: 44px;
@@ -530,6 +533,7 @@
         <button id="tab-btn-company" class="tab" onclick="showTab('company', this); todo_render('company')"><span class="nav-icon">🏢</span><span class="nav-label">Company</span></button>
         <button id="tab-btn-personal" class="tab" onclick="showTab('personal', this); todo_render('personal')"><span class="nav-icon">🌿</span><span class="nav-label">Personal</span></button>
         <button id="tab-btn-clive" class="tab" onclick="showTab('clive', this); todo_render('clive')"><span class="nav-icon">👤</span><span class="nav-label">CWB</span></button>
+        <button id="tab-btn-myhairgoodies" class="tab" onclick="showTab('myhairgoodies', this); todo_render('myhairgoodies')"><span class="nav-icon">🛍️</span><span class="nav-label">MyHairGoodies</span></button>
       </nav>
     </aside>
 
@@ -831,6 +835,42 @@
           <div id="clive-list"></div>
         </div>
 
+        <!-- ===== MYHAIRGOODIES ===== -->
+        <div id="myhairgoodies" class="section">
+          <div class="section-header">
+            <h2>MyHairGoodies</h2>
+            <p>Tasks for MyHairGoodies</p>
+          </div>
+          <div class="form-block">
+            <div class="form-block-title">Add a Task</div>
+            <div class="form-grid">
+              <div>
+                <label class="field-label">Task</label>
+                <input type="text" id="myhairgoodies-label" placeholder="What needs doing?" />
+              </div>
+              <div class="form-row">
+                <div>
+                  <label class="field-label">Due date (optional)</label>
+                  <input type="date" id="myhairgoodies-due" />
+                </div>
+                <div>
+                  <label class="field-label">Note (optional)</label>
+                  <input type="text" id="myhairgoodies-note" placeholder="Any details..." />
+                </div>
+              </div>
+              <div>
+                <label class="field-label">Attach files (optional)</label>
+                <input type="file" id="myhairgoodies-file" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.msg,.eml" />
+              </div>
+              <button class="btn btn-primary" onclick="todo_add('myhairgoodies')">+ Add Task</button>
+            </div>
+          </div>
+          <div class="search-bar">
+            <input type="search" id="myhairgoodies-search" placeholder="Search tasks…" oninput="todo_render('myhairgoodies')" />
+          </div>
+          <div id="myhairgoodies-list"></div>
+        </div>
+
       </div><!-- /main -->
     </div><!-- /content -->
   </div><!-- /shell -->
@@ -852,6 +892,7 @@
       { key: 'company',  label: 'Company Division' },
       { key: 'personal', label: 'Personal' },
       { key: 'clive',    label: 'CWB' },
+      { key: 'myhairgoodies', label: 'MyHairGoodies' },
     ];
 
     // Drag-and-drop to move a task between divisions is a desktop/mouse
